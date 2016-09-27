@@ -11,8 +11,7 @@ namespace PolymorphicDeserializationExample.Models
         Car
     }
 
-    [Newtonsoft.Json.JsonConverter(typeof(VehicleConverter))]
-    public class Vehicle
+    public abstract class Vehicle
     {
         public VehicleType Type { get; private set; }
 

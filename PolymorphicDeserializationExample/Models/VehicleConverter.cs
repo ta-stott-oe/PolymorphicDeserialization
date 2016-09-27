@@ -1,20 +1,21 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
 namespace PolymorphicDeserializationExample.Models
 {
-    public class VehicleConverter : JsonCreationConverter<Vehicle>
+    public class VehicleConverter : EnumSwitchJsonConverter<VehicleType, Vehicle>
     {
-        protected override Type GetTargetType(Vehicle baseObject)
+        private static readonly IDictionary<VehicleType, Type> mappings = new Dictionary<VehicleType, Type>
         {
-            switch (baseObject.Type)
-            {
-                case VehicleType.Bicycle: return typeof(Bicycle);
-                case VehicleType.Car: return typeof(Car);
-                default: throw new Exception($"Unrecognized vehicle type: '{baseObject.Type}'");
-            }
-        }
+            [VehicleType.Bicycle] = typeof(Bicycle),
+            [VehicleType.Car] = typeof(Car)
+        };
+
+        public VehicleConverter()
+            : base("Type", mappings) { }
     }
 }
