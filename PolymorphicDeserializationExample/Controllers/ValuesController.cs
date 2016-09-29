@@ -8,7 +8,7 @@ using System.Web.Http;
 namespace PolymorphicDeserializationExample.Controllers
 {
     using Models;
-
+    using Models.Vehicles;
     public class ValuesController : ApiController
     {
         // GET api/values

@@ -250,3 +250,5 @@ paket-files/
 # JetBrains Rider
 .idea/
 *.sln.iml
+/PolymorphicDeserializationExample/Models/Vehicle.js.map
+/PolymorphicDeserializationExample/Models/Vehicle.js

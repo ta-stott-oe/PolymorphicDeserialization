@@ -26,7 +26,7 @@ namespace PolymorphicDeserializationExample
                 if (jsonFormatter == null)
                     continue;
 
-                jsonFormatter.SerializerSettings.Converters.Add(new Models.VehicleConverter());
+                jsonFormatter.SerializerSettings.Converters.Add(new Models.Vehicles.VehicleConverter());
             }
         }
     }

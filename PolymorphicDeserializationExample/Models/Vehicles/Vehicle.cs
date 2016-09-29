@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
-namespace PolymorphicDeserializationExample.Models
+namespace PolymorphicDeserializationExample.Models.Vehicles
 {
     public enum VehicleType
     {
