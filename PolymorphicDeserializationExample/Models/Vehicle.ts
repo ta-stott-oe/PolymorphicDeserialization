@@ -9,58 +9,41 @@
     // More info: http://frhagn.github.io/Typewriter/
 
 	
-    export interface Vehicle {
-        
-        // TYPE
-        Type: VehicleType;
-		
+    export abstract class Vehicle {
+		constructor(public Type: VehicleType){
+		}
     }
 
     
-    export interface Bicycle extends Vehicle {
-        
-        // NUMBEROFGEARSBACK
-        NumberOfGearsBack: number;
-		
-        // NUMBEROFGEARSFRONT
-        NumberOfGearsFront: number;
-		
+    export class Bicycle extends Vehicle {
+        constructor(public NumberOfGearsBack: number, public NumberOfGearsFront: number){
+			super(VehicleType.Bicycle);
+		}
     }
-    export interface Car extends Vehicle {
-        
-        // ENGINETYPE
-        EngineType: EngineType;
-		
+    export class Car extends Vehicle {
+        constructor(public EngineType: EngineType){
+			super(VehicleType.Car);
+		}
     }
 
 	
 	export type VehicleType =
-		
-			"Bicycle"
-		|
-			"Car"
-		
+		"Bicycle" |
+		"Car"
 	
 	export const VehicleType = {
 		Bicycle: "Bicycle" as VehicleType,
-		Car: "Car" as VehicleType,
-		
+		Car: "Car" as VehicleType
 	}
 
 	export type EngineType =
-		
-			"Petrol"
-		|
-			"Diesel"
-		|
-			"Electric"
-		
+		"Petrol" |
+		"Diesel" |
+		"Electric"
 	
 	export const EngineType = {
 		Petrol: "Petrol" as EngineType,
 		Diesel: "Diesel" as EngineType,
-		Electric: "Electric" as EngineType,
-		
+		Electric: "Electric" as EngineType
 	}
 
-    EngineType.Diesel

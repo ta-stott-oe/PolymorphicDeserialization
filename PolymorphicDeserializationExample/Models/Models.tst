@@ -25,29 +25,25 @@
     // More info: http://frhagn.github.io/Typewriter/
 
 	$Classes(Vehicle)[
-    export interface $Name {
-        $Properties[
-        // $LoudName
-        $Name: $Type;
-		]
+    export abstract class $Name {
+		constructor($Properties[public $Name: $Type][, ]){
+		}
     }]
 
     $Classes(:*Vehicle)[
-    export interface $Name extends Vehicle {
-        $Properties[
-        // $LoudName
-        $Name: $Type;
-		]
+    export class $Name extends Vehicle {
+        constructor($Properties[public $Name: $Type][, ]){
+			super(VehicleType.$Name);
+		}
     }]
 
 	$Enums(*Models.Vehicles*)[
 	export type $Name =
-		$Values[
-			"$Name"
-		][|]
+		$Values["$Name"][ |
+		]
 	
 	export const $Name = {
-		$Values[$Name: "$Name" as $Parent,
+		$Values[$Name: "$Name" as $Parent][,
 		]
 	}
 ]
